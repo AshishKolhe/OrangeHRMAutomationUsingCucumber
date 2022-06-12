@@ -61,7 +61,9 @@ public class VerifyLoginFunc {
 		if (string.equals("successful")) {
 		cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
 		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		cdriver.findElement(By.xpath("//a[contains(text(),\"Logout\")]")).click();
+		
+		cdriver.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[3]")).click();
+		//cdriver.findElement(By.xpath("//a[contains(text(),\"Logout\")]")).click();
 		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if(cdriver.getCurrentUrl().contains("login")) {
 			System.out.println("successfully logged out " + cdriver.getCurrentUrl());

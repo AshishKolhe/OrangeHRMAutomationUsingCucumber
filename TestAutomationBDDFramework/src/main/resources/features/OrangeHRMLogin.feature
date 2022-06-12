@@ -1,7 +1,7 @@
 
 Feature: Login functionality
 
-#@LoginFunc
+@LoginFunc
 Scenario Outline: Enter the credentials "<uName>" , "<pWord>" on "<bName>"  and check if login is "<status>"
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -15,8 +15,17 @@ Examples:
 |chrome||admin1234|unsuccessful|
 |chrome|Admin||unsuccessful|
 |chrome|||unsuccessful|
-#|edge|admin|admin123|successful|
-#|edge|Admin|admin1234|unsuccessful|
+|edge|admin|admin123|successful|
+|edge|Admin|admin1234|unsuccessful|
+|edge||admin1234|unsuccessful|
+|edge|Admin||unsuccessful|
+|edge|||unsuccessful|
+#|firefox|admin|admin123|successful|
+#|firefox|Admin|admin1234|unsuccessful|
+#|firefox||admin1234|unsuccessful|
+#|firefox|Admin||unsuccessful|
+#|firefox|||unsuccessful|
+
 
 #@LoginFunc
 Scenario Outline: Validate all available webelements
@@ -46,7 +55,7 @@ Examples:
 |edge|admin|admin123|successful|saveSystemUser|
 
 
-@LoginFunc
+#@LoginFunc
 Scenario Outline: Add Field validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"

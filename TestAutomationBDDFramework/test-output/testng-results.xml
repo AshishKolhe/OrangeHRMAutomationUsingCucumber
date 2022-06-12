@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-11T19:53:42 AEST" name="Default suite" finished-at="2022-06-11T19:53:50 AEST" duration-ms="8390">
+  <suite started-at="2022-06-12T10:55:56 AEST" name="Default suite" finished-at="2022-06-12T10:57:17 AEST" duration-ms="81286">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-06-11T19:53:42 AEST" name="Default test" finished-at="2022-06-11T19:53:50 AEST" duration-ms="8390">
+    <test started-at="2022-06-12T10:55:56 AEST" name="Default test" finished-at="2022-06-12T10:57:17 AEST" duration-ms="81286">
       <class name="com.bdd.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-11T19:53:42 AEST" name="setUpClass" finished-at="2022-06-11T19:53:42 AEST" duration-ms="106" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:55:56 AEST" name="setUpClass" finished-at="2022-06-12T10:55:56 AEST" duration-ms="107" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-11T19:53:42 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-11T19:53:50 AEST" duration-ms="8066" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:55:56 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:08 AEST" duration-ms="12080" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,14 +23,158 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Smoke test menu bar]"]]>
+                <![CDATA["Optional[Login functionality]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-11T19:53:50 AEST" name="tearDownClass" finished-at="2022-06-11T19:53:50 AEST" duration-ms="142" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:08 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:15 AEST" duration-ms="7011" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "Admin" , "admin1234" on "chrome"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:15 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:20 AEST" duration-ms="5382" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "" , "admin1234" on "chrome"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:20 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:26 AEST" duration-ms="5230" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "Admin" , "" on "chrome"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:26 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:31 AEST" duration-ms="5356" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "" , "" on "chrome"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:31 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:43 AEST" duration-ms="12224" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "admin" , "admin123" on "edge"  and check if login is "successful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:43 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:56:53 AEST" duration-ms="10152" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "Admin" , "admin1234" on "edge"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:56:53 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:57:01 AEST" duration-ms="7802" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "" , "admin1234" on "edge"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:57:01 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:57:10 AEST" duration-ms="8491" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "Admin" , "" on "edge"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:57:10 AEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-12T10:57:17 AEST" duration-ms="7219" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Enter the credentials "" , "" on "edge"  and check if login is "unsuccessful""]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login functionality]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bdd.runner.TestRunner@4612b856]" started-at="2022-06-12T10:57:17 AEST" name="tearDownClass" finished-at="2022-06-12T10:57:17 AEST" duration-ms="139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
