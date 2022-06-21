@@ -1,6 +1,9 @@
 package com.bdd.steps;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.log4testng.Logger;
 
 import io.cucumber.java.en.And;
@@ -29,10 +32,16 @@ public class CommonSteps {
 		cdriver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
 	}
 
-	@And("close the browser")
-	public void closeTheBrowser()  {
-		cdriver.close();
-		cdriver.quit();
-	}
+//	@And("close the browser")
+//	public void closeTheBrowser()  {
+//		cdriver.close();
+//		cdriver.quit();
+//	}
 
+	public void moveToElement(String string) {
+		Actions a = new Actions(cdriver);
+		WebElement l = cdriver.findElement(By.id(string));
+		a.moveToElement(l).perform();
+		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
 }

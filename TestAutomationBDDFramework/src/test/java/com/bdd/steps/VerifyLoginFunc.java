@@ -1,7 +1,7 @@
 package com.bdd.steps;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import static com.bdd.variables.GlobalVariables.*;
@@ -56,14 +56,19 @@ public class VerifyLoginFunc {
 
 	}
 
-	@Then("user should be able to logout after {string} status")
-	public void user_should_be_able_to_logout_after_status(String string) {
-		if (string.equals("successful")) {
+	@Then("user should be able to logout after {string} status in {string} browser")
+	public void user_should_be_able_to_logout_after_status_in_browser(String string, String string2) {
+		if(string2.equals("firefox")) {
+			System.out.println("firefox function");
+			firefoxLogout();
+			
+			
+		}if (string.equals("successful")) {
 		cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
 		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		cdriver.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[3]")).click();
-		//cdriver.findElement(By.xpath("//a[contains(text(),\"Logout\")]")).click();
+		//cdriver.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[3]")).click();
+		cdriver.findElement(By.xpath("//a[contains(text(),\"Logout\")]")).click();
 		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if(cdriver.getCurrentUrl().contains("login")) {
 			System.out.println("successfully logged out " + cdriver.getCurrentUrl());
@@ -72,5 +77,19 @@ public class VerifyLoginFunc {
 		cdriver.close();
 		cdriver.quit();
 	}
+	public void firefoxLogout() {
+		//cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
+		//cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebElement element = cdriver.findElement(By.xpath("//a[@id=\"welcome\"]"));
+		
+		JavascriptExecutor js = (JavascriptExecutor)cdriver;
+		//js.executeScript("arguments[0].click();", "//*[@id=\"welcome-menu\"]/ul/li[3]");
+		//js.executeScript("arguments[0].click();", element );
+		js.executeScript("arguments[0].scrollIntoView();", element);
+		
+	}
+	
+	
+	
 
 }

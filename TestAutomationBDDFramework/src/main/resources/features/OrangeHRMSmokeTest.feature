@@ -8,6 +8,7 @@ When enter user name as "<uName>" and password as "<pWord>"
 Then user should be able to login "<status>"
 And user should be able to see all main menu options
 And user should be able to see all sub menu items for "<submenuoption>" menu
+And user should be able to see all children menu items
 
 Examples: 
 |bName|uName|pWord|status|submenuoption|

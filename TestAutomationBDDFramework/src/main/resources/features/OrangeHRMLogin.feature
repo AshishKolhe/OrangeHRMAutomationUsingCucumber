@@ -6,7 +6,7 @@ Scenario Outline: Enter the credentials "<uName>" , "<pWord>" on "<bName>"  and 
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
 Then user should be able to login "<status>"
-And user should be able to logout after "<status>" status
+And user should be able to logout after "<status>" status in "<bName>" browser
 
 Examples:
 |bName|uName|pWord|status|
@@ -27,7 +27,7 @@ Examples:
 #|firefox|||unsuccessful|
 
 
-#@LoginFunc
+@LoginFunc
 Scenario Outline: Validate all available webelements
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -40,7 +40,7 @@ Examples:
 |bName|uName|pWord|status|url|
 |edge|admin|admin123|successful|saveSystemUser|
 
-#@LoginFunc
+@LoginFunc
 Scenario Outline: Add user validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -55,7 +55,7 @@ Examples:
 |edge|admin|admin123|successful|saveSystemUser|
 
 
-#@LoginFunc
+@LoginFunc
 Scenario Outline: Add Field validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
