@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.bdd.steps.Admin_userManagement"/>
+      <class name="listeners.TestNGLister"/>
+      <class name="com.bdd.steps.AddUser_PageValidation"/>
+      <class name="com.bdd.steps.AddUser"/>
+      <class name=".Testsample"/>
+      <class name="com.bdd.steps.SmokeTestMainMenuLinkAvailability"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
