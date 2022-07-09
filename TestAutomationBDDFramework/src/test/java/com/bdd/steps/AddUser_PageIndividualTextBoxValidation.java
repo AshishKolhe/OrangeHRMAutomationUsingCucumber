@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.testng.log4testng.Logger;
@@ -47,7 +49,7 @@ public class AddUser_PageIndividualTextBoxValidation {
 
 	@And("^user tried to enter the name which exists in the list$")
 	public void userTriedToEnterTheNameWhichExistsInTheList() {
-		String correctEmpName = "j";
+		String correctEmpName = "k";
 		cdriver.findElement(By.xpath(empName)).clear();
 		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		cdriver.findElement(By.xpath(empName)).sendKeys(correctEmpName);
@@ -58,13 +60,13 @@ public class AddUser_PageIndividualTextBoxValidation {
 		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		List<WebElement> optionsToSelect = empNameSearchDD.findElements(By.tagName("li"));
-		
+
 		int g = generateRamdon(optionsToSelect.size());
 		selectedEmpName = (optionsToSelect.get(g)).getText().toLowerCase().replace(" ", "");
 		optionsToSelect.get(g).click();
-		
+
 		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
+
 		System.out.println("selected text " + selectedEmpName);
 
 	}
@@ -92,25 +94,34 @@ public class AddUser_PageIndividualTextBoxValidation {
 	public void click_on_button(String string) {
 		string = buttonSave;
 		cdriver.findElement(By.xpath(string)).click();
-
+		cdriver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 	}
 
 	@Then("verify sucessful navigation to {string}")
 	public void verify_sucessful_navigation_to(String string) {
+		
+		if(isloadComplete(cdriver)) {
 		if(cdriver.getCurrentUrl().equals(string)){
 			System.out.println("successfully created");
-		}else {
-			String save;
+		}
+		else {
+			
 			click_on_button(buttonSave);
+			cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			verify_sucessful_navigation_to(string);
 		}
-		
+		}
 	}
-	
+
 	public int generateRamdon(int size) {
 		int c = 0;
 		int d = size;
 		int f = (int) (Math.random() * (c - d + 1) + d);
 		return f;
+	}
+
+	public static boolean isloadComplete(WebDriver cdriver) {
+		return ((JavascriptExecutor) cdriver).executeScript("return document.readyState").equals("loaded")
+				|| ((JavascriptExecutor) cdriver).executeScript("return document.readyState").equals("complete");
 	}
 }

@@ -2,7 +2,9 @@ package com.bdd.steps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import static com.bdd.variables.GlobalVariables.*;
@@ -15,10 +17,22 @@ public class AddUser {
 	@Test
 	@Then("User should be able to locate {string} button")
 	public void user_should_be_able_to_locate_button(String string) {
-		cdriver.findElement(By.xpath("//a[@id=\"menu_admin_viewAdminModule\"]")).click();
-		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		cdriver.findElement(By.xpath("//input[@id=\"btnAdd\"]")).click();
-		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id=\"menu_admin_viewAdminModule\"]"))).click();
+		if((cdriver.getCurrentUrl().contains("viewSystemUsers"))) {
+			new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.id("btnAdd"))).click();
+		}else {
+			new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id=\"menu_admin_viewAdminModule\"]"))).click();
+			user_should_be_able_to_locate_button("add");
+		}
+		
+				
+		//cdriver.findElement(By.xpath("//a[@id=\"menu_admin_viewAdminModule\"]")).click();
+		//cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//cdriver.findElement(By.xpath("//input[@id=\"btnAdd\"]")).click();
+		
+		//cdriver.findElement(By.id("btnAdd")).click();
+		//cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Then("user should be navigate to {string}")

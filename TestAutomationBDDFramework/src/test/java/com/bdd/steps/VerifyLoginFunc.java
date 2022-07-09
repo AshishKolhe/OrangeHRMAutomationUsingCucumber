@@ -3,6 +3,9 @@ package com.bdd.steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.bdd.variables.GlobalVariables.*;
 
@@ -12,6 +15,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class VerifyLoginFunc {
+
+	Actions a = new Actions(cdriver);
+	JavascriptExecutor js = (JavascriptExecutor) cdriver;
 
 	@When("enter user name as {string} and password as {string}")
 	public void enter_user_name_as_and_password_as(String string, String string2) {
@@ -28,6 +34,7 @@ public class VerifyLoginFunc {
 
 		// Click on Submit button
 		cdriver.findElement(By.id("btnLogin")).click();
+		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
 
@@ -53,43 +60,62 @@ public class VerifyLoginFunc {
 
 			}
 		}
-
+		//cdriver.switchTo().defaultContent();
 	}
 
 	@Then("user should be able to logout after {string} status in {string} browser")
-	public void user_should_be_able_to_logout_after_status_in_browser(String string, String string2) {
-		if(string2.equals("firefox")) {
-			System.out.println("firefox function");
-			firefoxLogout();
-			
-			
-		}if (string.equals("successful")) {
-		cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
-		cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	public void user_should_be_able_to_logout_after_status_in_browser(String string, String string2) throws InterruptedException {
+		if (string.equals("successful")) {
+			if (string2.equals("firefox")) {
+				System.out.println("firefox function");
+				firefoxLogout();
+			} else {
+				NormalLogout(string);
+			}
+		}
+		else {
+			System.out.println("login unsuccessful no need to logout");
+		}
 		
-		//cdriver.findElement(By.xpath("//*[@id=\"welcome-menu\"]/ul/li[3]")).click();
-		cdriver.findElement(By.xpath("//a[contains(text(),\"Logout\")]")).click();
-		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		if(cdriver.getCurrentUrl().contains("login")) {
-			System.out.println("successfully logged out " + cdriver.getCurrentUrl());
-		}
-		}
-		cdriver.close();
+	}
+	
+	@Then("close the driver")
+	public void close_the_driver() {
+		//cdriver.close();
 		cdriver.quit();
 	}
-	public void firefoxLogout() {
-		//cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
-		//cdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		WebElement element = cdriver.findElement(By.xpath("//a[@id=\"welcome\"]"));
+
+	public void firefoxLogout() throws InterruptedException {
+
+		//Logout functionality for firefox is different because firefox is not able to identify element and click on it.  Hence Javascript executor is used to click on the link
 		
-		JavascriptExecutor js = (JavascriptExecutor)cdriver;
-		//js.executeScript("arguments[0].click();", "//*[@id=\"welcome-menu\"]/ul/li[3]");
-		//js.executeScript("arguments[0].click();", element );
-		js.executeScript("arguments[0].scrollIntoView();", element);
+		WebElement b = cdriver.findElement(By.xpath("//*[@id=\"welcome\"]"));
+		js.executeScript("arguments[0].click();", b);
+
+		new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.linkText("Logout"))).click();
+
+		Thread.sleep(2000);
+		if (cdriver.getCurrentUrl().contains("login")) {
+			System.out.println("successfully logged out " + cdriver.getCurrentUrl());
+		}
+
+	}
+
+	public void NormalLogout(String string) {
 		
+		// logout functionality for chrome and edge.
+		
+		if (string.equals("successful")) {
+
+			//cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
+			new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.id("welcome"))).click();
+			new WebDriverWait(cdriver, 20).until(ExpectedConditions.elementToBeClickable(By.linkText("Logout"))).click();
+			new WebDriverWait(cdriver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.id("btnLogin")));
+			
+			if (cdriver.getCurrentUrl().contains("login")) {
+				System.out.println("successfully logged out " + cdriver.getCurrentUrl());
+			}
+		}
 	}
 	
-	
-	
-
 }
