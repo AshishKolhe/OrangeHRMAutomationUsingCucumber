@@ -1,7 +1,7 @@
 
 Feature: Login functionality
 
-@LoginFunc12
+@LoginFunc1
 Scenario Outline: Enter the credentials "<uName>" , "<pWord>" on "<bName>"  and check if login is "<status>"
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -28,7 +28,7 @@ Examples:
 |firefox|||unsuccessful|
 
 
-@LoginFunc12
+@LoginFunc1
 Scenario Outline: Validate all available webelements
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -44,7 +44,7 @@ Examples:
 |chrome|admin|admin123|successful|saveSystemUser|
 |firefox|admin|admin123|successful|saveSystemUser|
 
-@LoginFunc12
+@LoginFunc1
 Scenario Outline: Add user validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
