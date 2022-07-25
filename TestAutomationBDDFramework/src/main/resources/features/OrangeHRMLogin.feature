@@ -28,7 +28,7 @@ Examples:
 |firefox|||unsuccessful|
 
 
-@LoginFunc1
+@LoginFunc12
 Scenario Outline: Validate all available webelements
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -44,7 +44,7 @@ Examples:
 |chrome|admin|admin123|successful|saveSystemUser|
 |firefox|admin|admin123|successful|saveSystemUser|
 
-@LoginFunc1
+@LoginFunc12
 Scenario Outline: Add user validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"
@@ -62,7 +62,7 @@ Examples:
 |firefox|admin|admin123|successful|saveSystemUser|
 
 
-@LoginFunc1
+@LoginFunc12
 Scenario Outline: Add Field validations
 Given user navigates to "<bName>"
 When enter user name as "<uName>" and password as "<pWord>"

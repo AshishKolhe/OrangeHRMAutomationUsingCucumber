@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static com.bdd.variables.GlobalVariables.*;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,6 +19,7 @@ public class VerifyLoginFunc {
 
 	Actions a = new Actions(cdriver);
 	JavascriptExecutor js = (JavascriptExecutor) cdriver;
+	Logger log = Logger.getLogger("newLogger");
 
 	@When("enter user name as {string} and password as {string}")
 	public void enter_user_name_as_and_password_as(String string, String string2) {
@@ -26,15 +28,18 @@ public class VerifyLoginFunc {
 		WebElement userNameField = cdriver.findElement(By.xpath("//input[@id=\"txtUsername\"]"));
 		userNameField.click();
 		userNameField.sendKeys(string);
+		log.info("user name entered");
 
 		// Find password field and enter password
 		WebElement passwordField = cdriver.findElement(By.id("txtPassword"));
 		passwordField.click();
 		passwordField.sendKeys(string2);
+		log.info("Password entered");
 
 		// Click on Submit button
 		cdriver.findElement(By.id("btnLogin")).click();
 		cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		log.info("Submit button clicked");
 
 	}
 
@@ -67,7 +72,8 @@ public class VerifyLoginFunc {
 	public void user_should_be_able_to_logout_after_status_in_browser(String string, String string2) throws InterruptedException {
 		if (string.equals("successful")) {
 			if (string2.equals("firefox")) {
-				System.out.println("firefox function");
+				//System.out.println("firefox function");
+				log.info("in firefox logout function");
 				firefoxLogout();
 			} else {
 				NormalLogout(string);
@@ -104,7 +110,7 @@ public class VerifyLoginFunc {
 	public void NormalLogout(String string) {
 		
 		// logout functionality for chrome and edge.
-		
+		log.info("in firefox logout function");
 		if (string.equals("successful")) {
 
 			//cdriver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
