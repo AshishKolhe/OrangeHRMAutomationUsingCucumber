@@ -81,10 +81,7 @@ public class GlobalVariables {
 		public static String gloMaintenanceMenuItems ="\"menu_maintenance_purgeEmployee\"";
 		public static String gloBuzzMenuItems ="\"menu_buzz_viewBuzz\"";
 		
-		
-		
-		
-		
+				
 	   // AddUserWebElement
 		public static String userType = "//select[@id=\"systemUser_userType\"]";
 		public static String empName = "//input[@id=\"systemUser_employeeName_empName\"]";
@@ -104,5 +101,6 @@ public class GlobalVariables {
 		public static String[] gloAdminUserManagementElements = {"searchSystemUser_userName", "searchSystemUser_userType", "searchSystemUser_employeeName_empName", "searchSystemUser_status","searchBtn","resetBtn","btnAdd","btnDelete"}; 
 		public static String[] gloAdminUserManagementTableHeaders = {"Username", "User Role", "Employee Name","Status"};
 
+		public static String[] gloRandomName= {"Kasper Risner",	"Prynce Klingensmith",	"Meghna Normand",	"Milagros Godinez",	"Xia Holmgren",	"Serena Pace",	"Oryan Mcphail",	"Sheyla Fullerton",	"Corrina Blais",	"Ximena Delgado",	"Tova Talbott",	"Vanellope Choe",	"Anasofia Appel",	"Mei Cashman",	"Denver Ashby",	"Kaya Land",	"Mayrin Grow",	"Taleah Shinn",	"Domonic Klatt",	"Markayla Gist",	"Yulissa Maples",	"Chace Brunson",	"Demoni Krall",	"Rosa Pike",	"Kyree Swan",	"Sylus Morelli",	"Ziya Mix",	"Deondre Bushey",	"Dedrick Breeding",	"Rana Dryden",	"Arlo Craft",	"Lennox Lancaster",	"Deshaun Autry",	"Taylyn Friel",	"Brooke Haynes",	"Adlee Derr",	"Violett Godsey",	"Elise Moss",	"Ronnie Zack",	"Glenda Habib",	"Shaylin Boykins",	"Farhan Moniz",	"Matteo Lyons",	"Tilly Montiel",	"Jamaal Arguello",	"Jelani Shumaker",	"Yitzchok Farias",	"Rosalinda Fleck",	"Marcela Keeton",	"Indigo Graber"};
 
 	}
